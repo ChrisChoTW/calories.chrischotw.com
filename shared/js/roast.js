@@ -263,11 +263,15 @@ const SPECIAL_CONDITIONS = [
 ];
 
 // ===== 核心：挑吐槽 =====
+// 品牌可在 extend.js 宣告 BRAND_ROASTS_GRADE / BRAND_SPECIAL_CONDITIONS
+// 來追加專屬池子，不覆蓋通用
 function pickRoast(ctx) {
   const candidates = [];
+  const brandCondList = (typeof BRAND_SPECIAL_CONDITIONS !== 'undefined') ? BRAND_SPECIAL_CONDITIONS : [];
+  const brandGradeMap = (typeof BRAND_ROASTS_GRADE !== 'undefined') ? BRAND_ROASTS_GRADE : {};
 
-  // 特殊條件命中
-  SPECIAL_CONDITIONS.forEach(cond => {
+  // 特殊條件命中（通用 + 品牌）
+  [...SPECIAL_CONDITIONS, ...brandCondList].forEach(cond => {
     try {
       if (cond.trigger(ctx)) {
         const pool = cond.roasts[ctx.grade] || [];
@@ -276,8 +280,9 @@ function pickRoast(ctx) {
     } catch (e) { /* 條件寫錯就略過 */ }
   });
 
-  // 通用等級池（權重較低，在沒命中特殊條件時兜底）
+  // 通用等級池 + 品牌等級池
   candidates.push(...(ROASTS_GRADE[ctx.grade] || []));
+  candidates.push(...(brandGradeMap[ctx.grade] || []));
 
   if (!candidates.length) return '';
   return candidates[Math.floor(Math.random() * candidates.length)];

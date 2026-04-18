@@ -77,7 +77,9 @@ function rankOf(kcal) {
   return hit;
 }
 function pickRankTag(rank) {
-  const tags = rank.tags || [];
+  // 品牌可在 extend.js 宣告 BRAND_RANK_TAGS = { sss: [...], ss: [...] } 追加
+  const brand = (typeof BRAND_RANK_TAGS !== 'undefined') ? BRAND_RANK_TAGS : {};
+  const tags = [...(rank.tags || []), ...(brand[rank.r] || [])];
   if (!tags.length) return '';
   return tags[Math.floor(Math.random() * tags.length)];
 }
