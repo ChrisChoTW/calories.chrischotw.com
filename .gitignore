@@ -1,0 +1,22 @@
+# 原始營養標示圖片（不進 repo）
+.source-material/
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 編輯器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node（未來可能用到）
+node_modules/
+dist/
+.cache/
+
+# 日誌
+*.log

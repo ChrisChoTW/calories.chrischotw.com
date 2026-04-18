@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calories · 速食熱量計算機</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+    background: linear-gradient(135deg, #fff8ea 0%, #ffe9c7 100%);
+    color: #3b1a0a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2.2rem;
+    color: #d62300;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+    color: #7a5638;
+    margin-bottom: 36px;
+    text-align: center;
+  }
+  .brands {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 720px;
+  }
+  .brand {
+    background: #fff;
+    border: 2px solid #e5cfa8;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    text-decoration: none;
+    color: #3b1a0a;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(80,35,20,0.08);
+  }
+  .brand:hover {
+    border-color: #d62300;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(214,35,0,0.15);
+  }
+  .brand.coming {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    border-style: dashed;
+  }
+  .brand .emoji { font-size: 3rem; display: block; margin-bottom: 8px; }
+  .brand .name { font-size: 1.15rem; font-weight: 700; color: #d62300; }
+  .brand.coming .name { color: #a88860; }
+  .brand .note { font-size: 0.78rem; color: #7a5638; margin-top: 4px; }
+  footer {
+    margin-top: 48px;
+    font-size: 0.72rem;
+    color: #7a5638;
+    text-align: center;
+  }
+  footer a { color: #d62300; text-decoration: none; }
+</style>
+</head>
+<body>
+  <h1>🍟 Calories</h1>
+  <div class="subtitle">速食熱量計算機 · 多人點餐 · 搞笑評級</div>
+  <div class="brands">
+    <a class="brand" href="/burgerking/">
+      <span class="emoji">🍔</span>
+      <div class="name">漢堡王</div>
+      <div class="note">Burger King</div>
+    </a>
+    <div class="brand coming">
+      <span class="emoji">🍟</span>
+      <div class="name">麥當勞</div>
+      <div class="note">Coming soon</div>
+    </div>
+    <div class="brand coming">
+      <span class="emoji">🍗</span>
+      <div class="name">肯德基</div>
+      <div class="note">Coming soon</div>
+    </div>
+    <div class="brand coming">
+      <span class="emoji">🥪</span>
+      <div class="name">摩斯漢堡</div>
+      <div class="note">Coming soon</div>
+    </div>
+  </div>
+  <footer>
+    Made by <a href="https://chrischotw.com/" target="_blank" rel="noopener">Chris.Cho</a>
+    · 娛樂用途 · 數值以門市為準
+  </footer>
+</body>
+</html>
