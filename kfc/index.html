@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>肯德基熱量計算機 · 多人點餐版</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<header>
+  <h1>🍗 肯德基熱量計算機 · 多人點餐版</h1>
+  <p>一起點餐、一起揭曉熱量真相</p>
+</header>
+
+<div class="toolbar">
+  <button class="action-btn ghost" id="toggleMultiBtn">👥 啟用多人</button>
+  <div class="members-bar multi-only hidden" id="membersBar"></div>
+  <button class="add-member-btn multi-only hidden" id="addMemberBtn">＋ 新增成員</button>
+  <div class="field-toggles" id="fieldToggles">
+    <span class="label">顯示：</span>
+  </div>
+  <button class="action-btn ghost" id="clearAllBtn">🗑 清空</button>
+  <button class="btn-reveal" id="revealBtn">🔥 揭曉熱量真相</button>
+</div>
+
+<div class="layout">
+  <div class="panel">
+    <div class="search-box">
+      <input type="text" id="search" placeholder="🔍 搜尋品項（例：華堡、薯條、拿鐵、無糖）" autocomplete="off">
+    </div>
+    <div class="cat-tabs" id="catTabs"></div>
+    <div id="menu"></div>
+  </div>
+
+  <div class="sidebar-scroll" id="sidebar"></div>
+</div>
+
+<div class="result-overlay hidden" id="resultOverlay">
+  <div class="result-modal">
+    <button class="modal-close" id="modalCloseBtn">×</button>
+    <div id="resultCard"></div>
+    <div class="result-actions">
+      <button class="btn-screenshot" id="screenshotBtn">📸 截圖分享</button>
+      <button class="btn-again" id="backToOrderBtn">🍔 回去繼續點</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  資料來源：第三方整理 dailydietitian.com.tw · 數值以門市為準 · 評級純屬搞笑娛樂
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/extend.js"></script>
+<script src="../shared/js/roast.js"></script>
+<script src="../shared/js/app.js"></script>
+</body>
+</html>
